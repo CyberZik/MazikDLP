@@ -1,2 +1,2 @@
 # MazikDLP
-Enterprise AI Data Loss Prevention platform for monitoring, detecting, masking, and blocking sensitive data in AI workflows.
+MazikDLP is an enterprise AI Data Loss Prevention platform with a React dashboard, FastAPI backend, PostgreSQL/Redis services, and a browser extension. It helps organizations monitor AI app usage, define security policies, detect sensitive data such as PII, credentials, source code, and Indian compliance identifiers, and enforce actions like allow, alert, mask, soft block, or hard block.
