@@ -1,0 +1,81 @@
+# ============================================
+# MazikDLP - Docker Compose
+# PostgreSQL + Redis + FastAPI
+# ============================================
+
+version: "3.9"
+
+services:
+  # --- PostgreSQL Database ---
+  postgres:
+    image: postgres:16-alpine
+    container_name: mazikdlp_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: mazikdlp
+      POSTGRES_USER: mazikdlp_user
+      POSTGRES_PASSWORD: mazikdlp_secret_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mazikdlp_user -d mazikdlp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mazikdlp_network
+
+  # --- Redis Cache ---
+  redis:
+    image: redis:7-alpine
+    container_name: mazikdlp_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mazikdlp_network
+
+  # --- FastAPI Application ---
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mazikdlp_api
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./alembic:/app/alembic
+      - ./alembic.ini:/app/alembic.ini
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - mazikdlp_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  mazikdlp_network:
+    driver: bridge

@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+backend/dist/
+backend/build/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.pytest_cache/
+pytest-cache-files-*/
+.coverage
+htmlcov/
+venv/
+.venv/
+env/
+
+# Logs
+*.log
+logs/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local assistant/tooling state
+.claude/
+.agents/
+.codex/
+.aws/
+
+# Databases and local runtime files
+*.db
+*.sqlite
+*.sqlite3
+docker-compose.override.yml

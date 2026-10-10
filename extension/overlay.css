@@ -1,0 +1,264 @@
+/* MazikDLP — Overlay & Modal Styles injected into AI platform pages */
+
+/* ── Full-page backdrop ─────────────────────────────────────────────────── */
+.mazikdlp-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important; /* Maximum z-index */
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* ── Modal card ─────────────────────────────────────────────────────────── */
+.mazikdlp-modal {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 28px 24px 20px !important;
+  max-width: 420px !important;
+  width: 100% !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25) !important;
+  text-align: center !important;
+  animation: mazikdlp-slide-in 0.2s ease !important;
+}
+
+@keyframes mazikdlp-slide-in {
+  from { transform: translateY(-16px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ── Icon ───────────────────────────────────────────────────────────────── */
+.mazikdlp-modal-icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 16px !important;
+}
+
+.mazikdlp-modal-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.block-icon {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+.warn-icon {
+  background: #fffbeb !important;
+  color: #d97706 !important;
+}
+
+/* ── Text ───────────────────────────────────────────────────────────────── */
+.mazikdlp-modal-title {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin: 0 0 8px !important;
+  line-height: 1.3 !important;
+}
+
+.mazikdlp-modal-sub {
+  font-size: 13px !important;
+  color: #6b7280 !important;
+  line-height: 1.5 !important;
+  margin: 0 0 16px !important;
+}
+
+/* ── Entity list ────────────────────────────────────────────────────────── */
+.mazikdlp-entity-list {
+  background: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+  margin-bottom: 16px !important;
+  text-align: left !important;
+  max-height: 180px !important;
+  overflow-y: auto !important;
+}
+
+.mazikdlp-entity-header {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #9ca3af !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 6px !important;
+}
+
+.mazikdlp-entity-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 4px 0 !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.mazikdlp-entity-item:last-child {
+  border-bottom: none !important;
+}
+
+.mazikdlp-entity-type {
+  background: #ede9fe !important;
+  color: #6d28d9 !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.mazikdlp-entity-value {
+  font-size: 12px !important;
+  color: #374151 !important;
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* ── Action buttons ─────────────────────────────────────────────────────── */
+.mazikdlp-modal-actions {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+}
+
+.mazikdlp-btn-primary,
+.mazikdlp-btn-secondary,
+.mazikdlp-btn-danger {
+  padding: 9px 20px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: opacity 0.15s !important;
+  font-family: inherit !important;
+}
+
+.mazikdlp-btn-primary {
+  background: #6366f1 !important;
+  color: #ffffff !important;
+  flex: 1 !important;
+}
+
+.mazikdlp-btn-secondary {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  flex: 1 !important;
+}
+
+.mazikdlp-btn-danger {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+  border: 1px solid #fecaca !important;
+  flex: 1 !important;
+}
+
+.mazikdlp-btn-primary:hover  { opacity: 0.9 !important; }
+.mazikdlp-btn-secondary:hover { background: #e5e7eb !important; }
+.mazikdlp-btn-danger:hover    { background: #fee2e2 !important; }
+
+/* ── Footer text ────────────────────────────────────────────────────────── */
+.mazikdlp-modal-footer {
+  font-size: 11px !important;
+  color: #d1d5db !important;
+  margin: 0 !important;
+}
+
+.mazikdlp-modal-footer strong {
+  color: #9ca3af !important;
+}
+
+/* ── Scanning indicator ─────────────────────────────────────────────────── */
+.mazikdlp-scanning {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: calc(100% + 6px) !important;
+  background: #1f2937 !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+  z-index: 2147483646 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  animation: mazikdlp-fade-in 0.15s ease !important;
+}
+
+.mazikdlp-scanning::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -4px !important;
+  right: 12px !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: #1f2937 !important;
+  transform: rotate(45deg) !important;
+}
+
+.mazikdlp-spinner {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid rgba(255,255,255,0.3) !important;
+  border-top-color: #ffffff !important;
+  border-radius: 50% !important;
+  animation: mazikdlp-spin 0.6s linear infinite !important;
+  flex-shrink: 0 !important;
+}
+
+@keyframes mazikdlp-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mazikdlp-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Alert toast ────────────────────────────────────────────────────────── */
+.mazikdlp-toast {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 2147483647 !important;
+  background: #1f2937 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  max-width: 360px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  animation: mazikdlp-toast-in 0.2s ease !important;
+}
+
+.mazikdlp-toast-icon {
+  font-size: 15px !important;
+  flex-shrink: 0 !important;
+}
+
+@keyframes mazikdlp-toast-in {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
