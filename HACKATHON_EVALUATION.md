@@ -77,4 +77,3 @@ MazikDLP helps organizations adopt AI without losing governance. It reduces the 
 - This repo focuses on MazikDLP. The original academic report also described related systems called MazikWall and Mazik Mini Firewall, but those are not part of this repository.
 - The extension is currently intended for Chrome as an unpacked MV3 extension.
 - Enterprise deployment integrations such as SSO, SIEM connectors, and production alert channels are future work.
-- The academic PDF report is a local reference file and is ignored by Git.
