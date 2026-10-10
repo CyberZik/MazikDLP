@@ -33,6 +33,9 @@ env/
 *.log
 logs/
 
+# Local reports and reference material
+reportv7.pdf
+
 # OS and editor files
 .DS_Store
 Thumbs.db
